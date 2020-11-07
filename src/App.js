@@ -13,8 +13,9 @@ function App() {
 
 
   return (
+    
     <div className="App">
-      <GlobalStyle />
+     <GlobalStyle /> 
       <Router>
         <Switch>
 
@@ -32,7 +33,8 @@ function App() {
 
         </Switch>
       </Router>
-    </div>
+
+      </div>
   );
 }
 
