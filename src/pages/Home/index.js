@@ -9,7 +9,7 @@ export default function Home() {
         <>
             <Header />
             <Main>
-                <Title />
+                <Title>Pokemons</Title>
             </Main>
             <Footer />
         </>
