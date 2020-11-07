@@ -1,7 +1,7 @@
 function P1() {
   return (
     <div className="P1">
-      <p>BN</p>
+      <p>BNrafa</p>
     </div>
   );
 }
