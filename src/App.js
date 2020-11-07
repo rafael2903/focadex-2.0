@@ -7,9 +7,11 @@ import { GlobalStyle } from './GlobalStyles.js'
 
 function App() {
 
-  const [loggedIn, setLogin] = useState(() => {
-    return JSON.parse(localStorage.getItem('logged'));
-  });
+  // const [loggedIn, setLogin] = useState(() => {
+  //   return JSON.parse(localStorage.getItem('logged'));
+  // });
+
+  const [loggedIn, setLogin] = useState(true);
 
 
   return (
