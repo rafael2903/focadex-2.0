@@ -5,12 +5,11 @@ import PageNotFound from "./pages/PageNotFound";
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyles.js'
 
-function App() {
+const App = () => {
 
-  const [loggedIn, setLogin] = useState(() => {
-    return JSON.parse(localStorage.getItem('logged'));
-  });
+  const [loggedIn, setLogin] = useState({});
 
+  //componentWillMount(setLogin(localStorage.getItem('logged')));
 
   return (
     <div className="App">
