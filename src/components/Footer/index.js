@@ -8,7 +8,7 @@ function Footer() {
         <>
             <StyledFooter>
                 <StyledP>
-                    Desenvolvido por <StyledLink href="#">Igor</StyledLink> e <StyledLink href="https://github.com/rafael2903">Rafael</StyledLink>
+                    Desenvolvido por <StyledLink href="https://github.com/igortaquary">Igor</StyledLink> e <StyledLink href="https://github.com/rafael2903">Rafael</StyledLink>
                 </StyledP>
             </StyledFooter>
         </>

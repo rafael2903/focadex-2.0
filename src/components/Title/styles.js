@@ -7,4 +7,5 @@ export const Title = styled.h1`
     text-align: center;
     width: min-content;
     margin: 0 auto;
+    text-decoration: underline;
 `;

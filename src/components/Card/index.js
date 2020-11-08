@@ -1,25 +1,26 @@
 import {Img, Div} from './styles';
 import {IoIosStar} from 'react-icons/io';
 
-function Card( {image_url, name, number, kind} ) {
+function Card( {pokemon: {image_url, name, number, kind}} ) {
 
     return(
-        <Li>
-            <Div>
+        <Link to={"/pokemons/" + name}>
+            <Li>
                 <Div>
-                    <Img src={image_url} />
+                    <Div>
+                        <Img src={image_url} />
+                    </Div>
                 </Div>
-            </Div>
-            <Div>
-                <P className="name">{name}</P>
-                <Ul>
+                <Div>
+                    <P className="name">{name}</P>
+                    <Ul>
 
-                </Ul>
-                <IoIosStar color="FFE81E"/>
-            </Div>
-        </Li>
+                    </Ul>
+                    <IoIosStar color="FFE81E"/>
+                </Div>
+            </Li>
+        </Link>
     );
 }
-
 
 export default card;

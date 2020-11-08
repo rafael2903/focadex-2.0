@@ -2,17 +2,16 @@ import {Img, Div} from './styles';
 import StyledP from '../StyledP';
 import image from "../../assets/profile.png";
 
-function Profile() {
+function Profile( {username} ) {
 
     return(
         <Div className="profile-container" >
-            <StyledP>Meu perfil</StyledP>
+            <Link to={"/users/" + username}><StyledP>Meu perfil</StyledP></Link>
             <Div className="image-profile-container">
                 <Img src={image} alt="profile image"/>
             </Div>
         </Div>
     );
 }
-
 
 export default Profile;
