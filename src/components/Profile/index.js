@@ -1,6 +1,7 @@
 import {Img, Div} from './styles';
 import StyledP from '../StyledP';
 import image from "../../assets/profile.png";
+import { Link } from 'react-router-dom'
 
 function Profile( {username} ) {
 

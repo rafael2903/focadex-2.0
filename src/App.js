@@ -13,6 +13,7 @@ function App() {
 
   const [loggedIn, setLogin] = useState(true);
 
+  const [username, setUsername] = useState('rafael');
 
   return (
     
@@ -22,7 +23,7 @@ function App() {
         <Switch>
 
           <Route exact path="/">
-            {loggedIn ? <Home setLogin={setLogin} /> : <Redirect to="/login" />}
+            {loggedIn ? <Home setLogin={setLogin} username={username} /> : <Redirect to="/login" />}
           </Route>
 
           <Route path="/login">

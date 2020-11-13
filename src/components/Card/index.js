@@ -1,26 +1,27 @@
-import {Img, Div} from './styles';
+import {Img, Div, Item} from './styles';
 import {IoIosStar} from 'react-icons/io';
+import {Link} from 'react-router-dom';
 
 function Card( {pokemon: {image_url, name, number, kind}} ) {
 
     return(
         <Link to={"/pokemons/" + name}>
-            <Li>
-                <Div>
-                    <Div>
+            <Item>  
+                <Div className='top'>
+                    <Div className='img-container'>
                         <Img src={image_url} />
                     </Div>
                 </Div>
-                <Div>
-                    <P className="name">{name}</P>
-                    <Ul>
+                <Div className='bottom'>
+                    <p className="name">{name}</p> 
+                    {/* <Ul> */}
 
-                    </Ul>
+                    {/* </Ul> */}
                     <IoIosStar color="FFE81E"/>
                 </Div>
-            </Li>
+            </Item>
         </Link>
     );
 }
 
-export default card;
+export default Card;
