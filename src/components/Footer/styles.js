@@ -5,6 +5,12 @@ export const StyledFooter = styled(BlueBox).attrs({as: "footer"})`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    p {
+    color: white;
+    display: inline-block;
+    }
+
 `;
 
 export const StyledLink = styled.a`

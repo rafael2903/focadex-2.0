@@ -14,6 +14,18 @@ export const Img = styled.img`
 export const Div = styled.div`
     
 
+    p {
+    color: white;
+    display: inline-block;
+    }
+
+    @media(max-width: 767px) {
+
+        p {
+            display: none;
+        }
+  }
+
     &.image-profile-container {
         background-color: #FFF;
         border-radius: 50%;
@@ -23,12 +35,10 @@ export const Div = styled.div`
         position: relative;
         overflow: hidden;
         margin-left: 15px;
-
-        display: ${props => props.$display || 'black'};
     }
 
     &.profile-container {
-        width: 150px;
+        width: auto;
         height: 100%;
         display: flex;
         align-items: center;

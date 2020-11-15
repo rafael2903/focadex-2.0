@@ -1,5 +1,4 @@
 import Header from "../../components/Header";
-import Main from "../../components/Main";
 import Title from "../../components/Title";
 import Footer from "../../components/Footer";
 import Cards from "../../components/Cards";
@@ -29,11 +28,11 @@ export default function Home( {username}) {
     return (
         <>
             <Header username={username} />
-            <Main>
+            <main>
                 <Title>Pokemons</Title>
                 <Cards pokemons={pokemons} />
                 {/* <Pagination current_page setCurrentPage /> */}
-            </Main>
+            </main>
             <Footer />
         </>
     );

@@ -1,5 +1,4 @@
 import {StyledFooter, StyledLink} from './styles';
-import StyledP from '../StyledP';
 
 
 function Footer() {
@@ -7,9 +6,9 @@ function Footer() {
     return(
         <>
             <StyledFooter>
-                <StyledP>
+                <p>
                     Desenvolvido por <StyledLink href="https://github.com/igortaquary">Igor</StyledLink> e <StyledLink href="https://github.com/rafael2903">Rafael</StyledLink>
-                </StyledP>
+                </p>
             </StyledFooter>
         </>
     );

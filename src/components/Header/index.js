@@ -7,7 +7,7 @@ function Header( {username} ) {
 
     return(
         <StyledHeader>
-            <MdKeyboardBackspace size={30} color="#fff"/>
+            {/* <MdKeyboardBackspace size={30} color="#fff"/> */}
             <p className="header-logo">Pokedex</p>
             <Profile username={username} />
         </StyledHeader>      
