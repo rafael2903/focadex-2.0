@@ -13,7 +13,7 @@ function App() {
 
   const [loggedIn, setLogin] = useState(true);
 
-  const [username, setUsername] = useState('rafael');
+  const [username, setUsername] = useState('ash_ketchum');
 
   return (
     

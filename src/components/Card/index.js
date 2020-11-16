@@ -1,7 +1,7 @@
 import {Img, Div, Item, StyledLink, Kind, Kinds} from './styles';
 import {IoIosStar} from 'react-icons/io';
 
-function Card( {pokemon: {image_url, name, kind}} ) {
+function Card( {pokemon: {image_url, name, kind}, favorite} ) {
 
     kind = kind.split(";");
 
