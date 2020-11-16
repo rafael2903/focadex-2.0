@@ -10,16 +10,23 @@ function login(username) {
     axios.get(`${APIurl}users/${username}`)
         .then(res => {
             console.log("status " + res.status);
-            /* localStorage.setItem('logged');
-            localStorage.setItem('username', username); */
+            localStorage.setItem('logged', true);
+            localStorage.setItem('username', username);
         })
-        .catch(() => { cadastrar(username) });
+        .catch(() => {
+            console.log("erro");
+            cadastrar(username);
+        });
 }
 
 function cadastrar(username) {
     axios.post(`${APIurl}users`, { username: username })
         .then(res => {
             console.log(res.status);
+            if (res.status == 201) {
+                localStorage.setItem('logged');
+                localStorage.setItem('username', username);
+            }
         })
 }
 

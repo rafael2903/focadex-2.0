@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Home from "./pages/Home"
 import LoginPage from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
@@ -7,9 +7,11 @@ import { GlobalStyle } from './GlobalStyles.js'
 
 const App = () => {
 
-  const [loggedIn, setLogin] = useState({});
+  const [loggedIn, setLogin] = useState(0);
 
-  //componentWillMount(setLogin(localStorage.getItem('logged')));
+  useEffect(() => {
+    setLogin(localStorage.getItem('logged'));
+  })
 
   return (
     <div className="App">
@@ -18,11 +20,11 @@ const App = () => {
         <Switch>
 
           <Route exact path="/">
-            {loggedIn ? <Home setLogin={setLogin} /> : <Redirect to="/login" />}
+            {loggedIn ? <Home /> : <Redirect to="/login" />}
           </Route>
 
           <Route path="/login">
-            {loggedIn ? <Redirect to="/" /> : <LoginPage setLogin={setLogin} />}
+            {loggedIn ? <Redirect to="/" /> : <LoginPage />}
           </Route>
 
           <Route path="">
