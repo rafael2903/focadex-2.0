@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+
     background-color: #EF4444;
     width: 100vw;
     height: 100vh;
@@ -10,21 +11,35 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
 
-    img{
-        margin-top: 50px;
+    div {
+        height: 35vh;
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+
     }
 
     h1{
         color: white;
-        margin-top: 30px;
+        margin-top: 20px;
+        font-weight: normal;
+        font-size: 38px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center
     }
 `;
 
 export const LoginInput = styled.input`
-    font-size: 26px;
+    font-size: 24px;
     padding: 5px 10px;
     border-radius: 5px;
-    margin-top: 30px;
+    margin: 30px 10px 0 10px;
     :focus{
         outline: none
     }
@@ -35,12 +50,13 @@ export const LoginButton = styled.button`
     color: #FFF;
     outline: none;
     border: none;
-    font-size: 26px;
-    padding: 10px 20px;
+    font-size: 20px;
+    padding: 5px 0px;
+    width: 30%;
     margin-top: 20px;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px black;
-    
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    border: 2px solid #3179c5;
     :hover{
         background-color: #4D90D7;
         cursor: pointer;
