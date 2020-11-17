@@ -11,7 +11,7 @@ const App = () => {
 
   useEffect(() => {
     setLogin(localStorage.getItem('logged'));
-  })
+  }, []);
 
   return (
     <div className="App">
