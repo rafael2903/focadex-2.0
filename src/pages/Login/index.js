@@ -7,20 +7,19 @@ import { Link } from 'react-router-dom'
 const APIurl = 'https://pokedex20201.herokuapp.com/';
 
 
-const LoginPage = (username, setUsername) => {
+const LoginPage = ({username, setUsername, setLogin}) => {
+
     const login = (username) => {
         axios.get(`${APIurl}users/${username}`)
             .then(res => {
                 console.log("status " + res.status);
-                localStorage.setItem('logged', true);
+                localStorage.setItem('logged', 'true');
                 localStorage.setItem('username', username);
+                setLogin(true);
             })
             .catch(() => {
                 console.log("erro");
                 cadastrar(username);
-            })
-            .finally(() => {
-                setUsername(username);
             })
     }
 
@@ -29,8 +28,9 @@ const LoginPage = (username, setUsername) => {
             .then(res => {
                 console.log(res.status);
                 if (res.status == 201) {
-                    localStorage.setItem('logged');
+                    localStorage.setItem('logged', 'true');
                     localStorage.setItem('username', username);
+                    setLogin(true);
                 }
             })
     }
@@ -39,7 +39,7 @@ const LoginPage = (username, setUsername) => {
         <Container>
             <img src={logo} alt="Pokemon Logo" style={{ width: '40%' }} />
             <h1>Faça Login</h1>
-            <LoginInput type='text' placeholder='Nome de usuário' onChange={(e) => username = (e.target.value)}></LoginInput>
+            <LoginInput type='text' placeholder='Nome de usuário' onChange={(e) => setUsername(e.target.value) }></LoginInput>
             <LoginButton onClick={() => { login(username); }}>Entrar</LoginButton>
 
         </Container>

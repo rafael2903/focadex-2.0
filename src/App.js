@@ -7,12 +7,13 @@ import { GlobalStyle } from './GlobalStyles.js'
 
 const App = () => {
 
-  const [loggedIn, setLogin] = useState(0);
-  const [username, setUsername] = useState('');
+  const [loggedIn, setLogin] = useState(() => {
+    return JSON.parse(localStorage.getItem('logged'));
+  });
 
-  useEffect(() => {
-    setLogin(localStorage.getItem('logged'));
-  }, []);
+  const [username, setUsername] = useState(() => {
+    return localStorage.getItem('username');
+  });
 
   return (
 
@@ -26,7 +27,7 @@ const App = () => {
           </Route>
 
           <Route path="/login">
-            {loggedIn ? <Redirect to="/" /> : <LoginPage username={username} setUsername={setUsername} />}
+            {loggedIn ? <Redirect to="/" /> : <LoginPage username={username} setUsername={setUsername} setLogin={setLogin}/>}
           </Route>
 
           <Route path="">
@@ -41,3 +42,4 @@ const App = () => {
 }
 
 export default App;
+
