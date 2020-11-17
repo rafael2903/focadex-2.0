@@ -4,7 +4,6 @@ import styled from 'styled-components';
 export const PagesContainer = styled.div`
     width: 180px;
     margin: 50px auto;
-    /* margin-top: 50px; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,6 +24,10 @@ export const Page = styled.div`
     &.current {
         background-color: #0152cc;
         color: white;
+    }
+
+    :hover {
+        border: 2px solid #0152cc;
     }
 
 `;
