@@ -26,7 +26,7 @@ export const Container = styled.div`
         color: white;
         margin-top: 20px;
         font-weight: normal;
-        font-size: 38px;
+        font-size: 40px;
     }
 
     @media(max-width: 450px) {
@@ -43,13 +43,16 @@ export const Container = styled.div`
 
 export const LoginInput = styled.input`
     font-size: 24px;
-    padding: 5px 10px;
+    padding: 6px 10px;
     border-radius: 5px;
     margin: 30px 10px 0 10px;
     max-width: 85vw;
+    border: 2px solid transparent;
 
     :focus{
-        outline: none
+        outline: none;
+        border: 2px solid grey;
+        box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.1);
     }
 
     @media(max-width: 450px) {
@@ -67,11 +70,12 @@ export const LoginButton = styled.button`
     width: 30%;
     margin-top: 20px;
     border-radius: 5px;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
     border: 2px solid #3179c5;
 
     :hover{
         background-color: #4D90D7;
+        border: 2px solid #4D90D7;
         cursor: pointer;
     }
 
