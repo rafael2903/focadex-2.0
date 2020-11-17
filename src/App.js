@@ -8,6 +8,7 @@ import { GlobalStyle } from './GlobalStyles.js'
 const App = () => {
 
   const [loggedIn, setLogin] = useState(0);
+  const [username, setUsername] = useState('');
 
   useEffect(() => {
     setLogin(localStorage.getItem('logged'));
@@ -25,7 +26,7 @@ const App = () => {
           </Route>
 
           <Route path="/login">
-            {loggedIn ? <Redirect to="/" /> : <LoginPage />}
+            {loggedIn ? <Redirect to="/" /> : <LoginPage username={username} setUsername={setUsername} />}
           </Route>
 
           <Route path="">

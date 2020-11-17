@@ -2,44 +2,46 @@ import React, { useState } from 'react';
 import { Container, LoginInput, LoginButton } from './styles'
 import logo from '../../assets/logoPokemon.png';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 const APIurl = 'https://pokedex20201.herokuapp.com/';
 
-function login(username) {
-    console.log(username);
-    axios.get(`${APIurl}users/${username}`)
-        .then(res => {
-            console.log("status " + res.status);
-            localStorage.setItem('logged', true);
-            localStorage.setItem('username', username);
-        })
-        .catch(() => {
-            console.log("erro");
-            cadastrar(username);
-        });
-}
 
-function cadastrar(username) {
-    axios.post(`${APIurl}users`, { username: username })
-        .then(res => {
-            console.log(res.status);
-            if (res.status == 201) {
-                localStorage.setItem('logged');
+const LoginPage = (username, setUsername) => {
+    const login = (username) => {
+        axios.get(`${APIurl}users/${username}`)
+            .then(res => {
+                console.log("status " + res.status);
+                localStorage.setItem('logged', true);
                 localStorage.setItem('username', username);
-            }
-        })
-}
+            })
+            .catch(() => {
+                console.log("erro");
+                cadastrar(username);
+            })
+            .finally(() => {
+                setUsername(username);
+            })
+    }
 
-const LoginPage = () => {
-
-    const [username, setUsername] = useState({});
+    const cadastrar = (username) => {
+        axios.post(`${APIurl}users`, { username: username })
+            .then(res => {
+                console.log(res.status);
+                if (res.status == 201) {
+                    localStorage.setItem('logged');
+                    localStorage.setItem('username', username);
+                }
+            })
+    }
 
     return (
         <Container>
             <img src={logo} alt="Pokemon Logo" style={{ width: '40%' }} />
             <h1>Faça Login</h1>
-            <LoginInput type='text' placeholder='Nome de usuário' onChange={(e) => setUsername(e.target.value)}></LoginInput>
-            <LoginButton onClick={() => login(username)}>Entrar</LoginButton>
+            <LoginInput type='text' placeholder='Nome de usuário' onChange={(e) => username = (e.target.value)}></LoginInput>
+            <LoginButton onClick={() => { login(username); }}>Entrar</LoginButton>
+
         </Container>
     );
 
