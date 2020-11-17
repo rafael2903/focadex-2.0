@@ -4,6 +4,8 @@ import LoginPage from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyles.js'
+import Pokemon from "./pages/Pokemon";
+import Profile from "./pages/Profile";
 
 function App() {
 
@@ -28,6 +30,15 @@ function App() {
 
           <Route path="/login">
             {loggedIn ? <Redirect to="/" /> : <LoginPage setLogin={setLogin} />}
+          </Route>
+
+
+          <Route path="/pokemons/:name">
+            <Pokemon />
+          </Route>
+
+          <Route path="/users/:name">
+            <Profile />
           </Route>
 
           <Route path="">

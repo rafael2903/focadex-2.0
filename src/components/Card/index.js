@@ -10,14 +10,20 @@ function Card( {pokemon: {image_url, name, kind}, backgroundColors, favorite, us
     function handleClick() {
     
         if( favorite ){
-            axios.delete(`https://pokedex20201.herokuapp.com/users/${username}/starred/${name}`);
-            setFavorites( previous => {
-                previous.splice(previous.indexOf(name),1);
-                return previous;
+            axios.delete(`https://pokedex20201.herokuapp.com/users/${username}/starred/${name}`)
+            .then( () => {
+                setFavorites( previous => {
+                    previous.splice(previous.indexOf(name),1);
+                    return previous;
+                });
             });
+            
         }else{
-            axios.post(`https://pokedex20201.herokuapp.com/users/${username}/starred/${name}`);
-            setFavorites( previous => [...previous,name] );
+            axios.post(`https://pokedex20201.herokuapp.com/users/${username}/starred/${name}`)
+            .then( () => {
+                setFavorites( previous => [...previous,name] );
+            });
+            
         }
     }
 
@@ -42,7 +48,7 @@ function Card( {pokemon: {image_url, name, kind}, backgroundColors, favorite, us
                         ))}
                     </Kinds>
                     <Div className="star">
-                        <IoIosStar color={favorite? "#FFE81E" : "#ccc"} size={24} onClick={handleClick} style={{cursor: "pointer"}}/> 
+                        <IoIosStar color={favorite? "#ffd61e" : "#bbb"} size={25} onClick={handleClick} style={{cursor: "pointer"}}/> 
                     </Div>
                 </Div>
             </Item>

@@ -2,6 +2,7 @@ import Header from "../../components/Header";
 import Title from "../../components/Title";
 import Footer from "../../components/Footer";
 import Cards from "../../components/Cards";
+import Pagination from "../../components/Pagination";
 
 import axios from 'axios';
 import { useState, useEffect } from "react";
@@ -56,6 +57,7 @@ export default function Home( {username}) {
         rock: "#757575",
         steel: "#A1A1A1",
         water: "#7192FF",
+        dragon: "#43372D",
     
     }
 
@@ -66,8 +68,8 @@ export default function Home( {username}) {
             <main>
                 <Title>Pokemons</Title>
                 <Cards pokemons={pokemons} favorites={favorites} backgroundColors={backgroundColors} username={username} setFavorites={setFavorites}/>
-                {/* <Pagination current_page setCurrentPage /> */}
             </main>
+                <Pagination prev_page={prev_page} current_page={current_page} setCurrentPage={setCurrentPage} next_page={next_page} />
             <Footer />
         </>
     );

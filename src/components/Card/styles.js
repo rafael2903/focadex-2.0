@@ -45,6 +45,8 @@ export const Div = styled.div`
     &.bottom {
         height: 50%;
         background-color: #ECECEC;
+        border-radius: 0 0 15px 15px;
+
     }
 
     &.star {
@@ -72,7 +74,7 @@ export const Item = styled.li`
     width: 140px;
     height: 200px;
     border-radius: 15px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 3px 3px 8px -1px rgba(0, 0, 0, 0.25);
     list-style: none;
     margin-bottom: 20px;
 `;
@@ -90,7 +92,7 @@ export const Kind = styled.li`
     color: white;
     display: inline-block;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     border-radius: 7px;
     padding: 3px 5px;
     text-align: center;

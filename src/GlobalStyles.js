@@ -15,4 +15,11 @@ export const GlobalStyle = createGlobalStyle`
         max-width: 1024px;
         margin: 0 auto;
     }
+
+    @media(max-width: 530px) {
+
+        main {
+            width: 90vw;
+        }
+    }
 `;
