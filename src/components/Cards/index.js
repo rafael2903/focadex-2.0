@@ -1,7 +1,7 @@
 import Card from '../Card';
 import {Itens} from './styles';
 
-function Cards( {pokemons, favorites} ) {
+function Cards( {pokemons, favorites, backgroundColors, username, setFavorites} ) {
 
     return (
         <Itens>
@@ -10,8 +10,8 @@ function Cards( {pokemons, favorites} ) {
             var favorite = false;
             if (favorites.includes(pokemon.name)) 
                 favorite = true;
-
-            return <Card key={pokemon.id} pokemon={pokemon} favorite />
+            
+            return <Card key={pokemon.id} pokemon={pokemon} backgroundColors={backgroundColors} favorite={favorite} username={username} setFavorites={setFavorites} />;
         })}
         </Itens>
     );
