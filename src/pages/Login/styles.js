@@ -28,6 +28,12 @@ export const Container = styled.div`
         font-weight: normal;
         font-size: 38px;
     }
+
+    @media(max-width: 450px) {
+
+        font-size: 20px;
+    }
+
     form {
         display: flex;
         flex-direction: column;
@@ -40,8 +46,14 @@ export const LoginInput = styled.input`
     padding: 5px 10px;
     border-radius: 5px;
     margin: 30px 10px 0 10px;
+    max-width: 85vw;
+
     :focus{
         outline: none
+    }
+
+    @media(max-width: 450px) {
+        font-size: 20px;
     }
 `;
 
@@ -55,10 +67,15 @@ export const LoginButton = styled.button`
     width: 30%;
     margin-top: 20px;
     border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
     border: 2px solid #3179c5;
+
     :hover{
         background-color: #4D90D7;
         cursor: pointer;
+    }
+
+    @media(max-width: 450px) {
+        font-size: 17px;
     }
 `;

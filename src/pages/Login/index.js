@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
 import { Container, LoginInput, LoginButton } from './styles'
 import logo from '../../assets/logoPokemon.png';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
 
 const APIurl = 'https://pokedex20201.herokuapp.com/';
 
