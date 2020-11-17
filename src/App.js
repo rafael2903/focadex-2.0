@@ -14,13 +14,14 @@ const App = () => {
   }, []);
 
   return (
+
     <div className="App">
       <GlobalStyle />
       <Router>
         <Switch>
 
           <Route exact path="/">
-            {loggedIn ? <Home /> : <Redirect to="/login" />}
+            {loggedIn ? <Home setLogin={setLogin} username={username} /> : <Redirect to="/login" />}
           </Route>
 
           <Route path="/login">
@@ -33,6 +34,7 @@ const App = () => {
 
         </Switch>
       </Router>
+
     </div>
   );
 }
