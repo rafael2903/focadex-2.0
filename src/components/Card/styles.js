@@ -3,16 +3,26 @@ import {Link} from 'react-router-dom';
 
 export const StyledLink = styled(Link)`
     text-decoration: none;
-`
+    height: 50%;
+    width: 100%;
+`;
+
+export const Container = styled.div`
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px 15px 0 0;
+    background-color: ${ ({kind, backgroundColors}) => backgroundColors[kind[0]]};
+
+    &:hover {
+        filter: brightness(90%)
+    }
+    
+`;
 
 export const Div = styled.div`
-    
-    &.top {
-        height: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+
     
     &.img-container {
         width: 70px;
@@ -34,6 +44,7 @@ export const Div = styled.div`
 
     &.bottom {
         height: 50%;
+        background-color: #ECECEC;
     }
 
     &.star {
@@ -63,7 +74,6 @@ export const Item = styled.li`
     border-radius: 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     list-style: none;
-    background: linear-gradient(#4ba6db 50%, #ECECEC 50%);
     margin-bottom: 20px;
 `;
 
@@ -79,5 +89,13 @@ export const Kinds= styled.ul`
 export const Kind = styled.li`
     color: white;
     display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 7px;
+    padding: 3px 5px;
+    text-align: center;
+    text-shadow: 0 0 1px #c3c3c3;
+    background-color: ${ ({children, backgroundColors}) => backgroundColors[children]};
+    
 
 `;

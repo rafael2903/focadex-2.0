@@ -14,7 +14,7 @@ export default function Home( {username}) {
     const [pokemons,setPokemons] = useState([]);
     const [favorites,setFavorites] = useState([])
 
-    useEffect( ()=> {
+    useEffect( () => {
         axios
         .get(`https://pokedex20201.herokuapp.com/pokemons?page=${current_page}`)
         .then( (response) => response.data)
@@ -35,27 +35,27 @@ export default function Home( {username}) {
             
         })
 
-    },[])
+    },[favorites])
 
 
     const backgroundColors = {
 
-        bug: 2,
-        electric: 2,
-        fairy: 2,
-        fighting: 2,
-        fire: 2,
-        flying: 2,
-        ghost: 2,
-        grass: 2,
-        ground: 2,
-        ice: 2,
-        normal: 2,
-        poison: 2,
-        psychic: 2,
-        rock: 2,
-        steel: 2,
-        water: 2,
+        bug: "#7ED578",
+        electric: "#FFF34B",
+        fairy: "#FF7EE5",
+        fighting: "#F17373",
+        fire: "#FFB433",
+        flying: "#D7F1E9",
+        ghost: "#E2E2E2",
+        grass: "#5EFF53",
+        ground: "#AA8546",
+        ice: "#AEE3FB",
+        normal: "#D7DBA8",
+        poison: "#CE52F9",
+        psychic: "#FFC157",
+        rock: "#757575",
+        steel: "#A1A1A1",
+        water: "#7192FF",
     
     }
 
@@ -65,7 +65,7 @@ export default function Home( {username}) {
             <Header username={username} />
             <main>
                 <Title>Pokemons</Title>
-                <Cards pokemons={pokemons} favorites={favorites} />
+                <Cards pokemons={pokemons} favorites={favorites} backgroundColors={backgroundColors} username={username} setFavorites={setFavorites}/>
                 {/* <Pagination current_page setCurrentPage /> */}
             </main>
             <Footer />

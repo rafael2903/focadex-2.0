@@ -19,12 +19,12 @@ export const Div = styled.div`
     display: inline-block;
     }
 
-    @media(max-width: 767px) {
+    @media(max-width: 530px) {
 
         p {
             display: none;
         }
-  }
+    }
 
     &.image-profile-container {
         background-color: #FFF;

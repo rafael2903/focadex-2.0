@@ -4,7 +4,7 @@ export const Itens = styled.ul`
 
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
     justify-content: space-around;
 
 `;
