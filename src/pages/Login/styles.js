@@ -5,7 +5,7 @@ export const Container = styled.div`
     width: 100vw;
     height: 100vh;
     margin: 0;
-    padding: 0;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,7 +24,8 @@ export const LoginInput = styled.input`
     font-size: 26px;
     padding: 5px 10px;
     border-radius: 5px;
-    margin-top: 30px;
+    margin: 30px 40px 0px 40px;
+    max-width: 280px;
     :focus{
         outline: none
     }

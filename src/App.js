@@ -29,7 +29,7 @@ const App = () => {
           </Route>
 
           <Route path="/login">
-            {loggedIn ? <Redirect to="/" /> : <LoginPage username={username} setUsername={setUsername} setLogin={setLogin}/>}
+            {loggedIn ? <Redirect to="/" /> : <LoginPage username={username} setUsername={setUsername} setLogin={setLogin} />}
           </Route>
 
 
@@ -37,8 +37,8 @@ const App = () => {
             <Pokemon />
           </Route>
 
-          <Route path="/users/:name">
-            <Profile />
+          <Route path="/users/:name" render={(props) => <Profile username={props.match.params.name} setLogin={setLogin} />} >
+
           </Route>
 
           <Route path="">

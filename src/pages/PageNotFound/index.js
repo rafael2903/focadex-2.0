@@ -4,7 +4,7 @@ import React from 'react';
 const PageNotFound = () => {
 
     return (
-        <div>Not found</div>
+        <h1 style={{ alignContent: "center" }}>Page not found</h1>
     )
 }
 
