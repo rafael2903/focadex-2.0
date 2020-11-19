@@ -32,7 +32,7 @@ function Card( {pokemon: {image_url, name, kind}, backgroundColors, favorite, us
         
             <Item className="item">  
                 <StyledLink to={"/pokemons/" + name}>
-                    <Container className="container" kind={kind} backgroundColors={backgroundColors}>
+                    <Container kind={kind} backgroundColors={backgroundColors}>
                         <Div className='img-container'>
                             <Img src={image_url} />
                         </Div>

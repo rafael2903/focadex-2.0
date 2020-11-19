@@ -8,12 +8,20 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: Archivo, Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
+    
 
     main {
         min-height: 100vh;
-        width: 80vw;
-        max-width: 1024px;
+        width: 85vw;
+        max-width: 1100px;
         margin: 0 auto;
+        position: relative;
+        text-align: center;
+    }
+
+    main p.loading {
+        font-size: 20px;
+        margin-top: 20%;
     }
 
     @media(max-width: 530px) {

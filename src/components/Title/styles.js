@@ -7,6 +7,7 @@ export const Title = styled.h1`
     text-align: center;
     width: min-content;
     margin: 30px auto 40px auto;
+    text-transform: capitalize;
     /* border-bottom: 2px solid black; */
 
     @media(max-width: 530px) {
