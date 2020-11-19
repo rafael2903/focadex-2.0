@@ -48,11 +48,16 @@ export const LoginInput = styled.input`
     margin: 30px 10px 0 10px;
     max-width: 85vw;
     border: 2px solid transparent;
+    background-color: #eee;
+
+    :hover {
+        box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.2);
+
+    }
 
     :focus{
         outline: none;
         border: 2px solid grey;
-        box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.1);
     }
 
     @media(max-width: 450px) {
@@ -72,11 +77,13 @@ export const LoginButton = styled.button`
     border-radius: 5px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
     border: 2px solid #3179c5;
+    cursor: pointer;
+
 
     :hover{
         background-color: #4D90D7;
         border: 2px solid #4D90D7;
-        cursor: pointer;
+        transform: scale(0.95);
     }
 
     @media(max-width: 450px) {
