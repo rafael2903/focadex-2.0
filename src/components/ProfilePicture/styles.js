@@ -5,5 +5,5 @@ export const Frame = styled.div`
     border-radius: 50%;
     background-color:  lightgray;
     padding: 30px;
-    margin: 20px 0px;
+    margin-bottom: 20px;
 `

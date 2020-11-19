@@ -5,9 +5,9 @@ export const Title = styled.h1`
     font-family: Archivo, Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 400;
     text-align: center;
-    width: min-content;
+    width: auto;
     margin: 30px auto 40px auto;
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
 
     @media(max-width: 530px) {
 

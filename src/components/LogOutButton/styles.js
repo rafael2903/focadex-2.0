@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const RedButton = styled.button`
-    background-color: #EF4444;
-    font-size: 0.8rem;
+    background-color: #E03030;
+    font-size: 0.9rem;
     border: none;
     border-radius: 5px;
     padding: 5px 2rem;
@@ -12,6 +12,6 @@ export const RedButton = styled.button`
     color: white;
 
     :hover{
-        background-color: #E03030;
+        background-color: #EF4444;
     }
 `

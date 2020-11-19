@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
-import { Container, NoFavorites } from './styles'
+import { Container, NoFavorites, StyledLink } from './styles'
 
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import UserDetail from '../../components/UserDetail'
 import Cards from '../../components/Cards'
 
-import { MdArrowBack } from 'react-icons/md'
+import { BsArrowLeft } from "react-icons/bs";
 import LogOutButton from '../../components/LogOutButton';
 
 const Profile = ({ username, setLogin }) => {
@@ -52,21 +52,24 @@ const Profile = ({ username, setLogin }) => {
     return (
         <>
             <Header showProfile={false} />
+            <main>
+
             <Container>
-                <div style={{ width: '100%' }}>
-                    <Link to='/'>
-                        <MdArrowBack />
-                    </Link>
-                </div>
+                {/* <div style={{ width: '100%' }}> */}
+                    <StyledLink to='/'>
+                        <BsArrowLeft  color="black" size={35}/>
+                    </StyledLink>
+                {/* </div> */}
                 <UserDetail username={username}></UserDetail>
                 <LogOutButton setLogin={setLogin} />
-                <div>Favoritos</div>
+                <div className="subtitle" >Favoritos</div>
             </Container>
             { favorites.length ?
                 <Cards pokemons={pokemons} favorites={favorites} backgroundColors={backgroundColors} username={username} setFavorites={setFavorites} />
                 : <NoFavorites>Você não possui nenhum pokemon favorito :(</NoFavorites>
-            }
-            <Footer></Footer>
+                }
+                </main>
+            <Footer />
         </>
     );
 }
