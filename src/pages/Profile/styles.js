@@ -8,3 +8,10 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
 `
+
+export const NoFavorites = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 20px 50px;
+`

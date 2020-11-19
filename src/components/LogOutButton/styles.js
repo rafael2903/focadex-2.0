@@ -7,5 +7,11 @@ export const RedButton = styled.button`
     border: none;
     border-radius: 5px;
     padding: 5px 2rem;
+    margin-bottom: 30px;
+    cursor: pointer;
     color: white;
+
+    :hover{
+        background-color: #E03030;
+    }
 `
