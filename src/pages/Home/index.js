@@ -6,9 +6,7 @@ import Pagination from "../../components/Pagination";
 
 export default function Home({ username,pokemons,favorites,backgroundColors,setFavorites,prev_page,current_page,setCurrentPage,next_page }) {
 
-
-    console.log(pokemons);
-
+    
     return (
         <>
             <Header username={username} />

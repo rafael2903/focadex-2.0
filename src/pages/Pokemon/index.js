@@ -6,7 +6,7 @@ import Star from "../../components/Star";
 import Kinds from '../../components/Kinds';
 import { BsArrowLeft } from "react-icons/bs";
 import { useState, useEffect } from "react";
-import {useParams} from 'react-router-dom';
+import {useHistory, useParams,} from 'react-router-dom';
 import axios from 'axios';
 
 export default function Pokemon( {username,favorites,pokemons,backgroundColors,setFavorites}) {
@@ -14,6 +14,7 @@ export default function Pokemon( {username,favorites,pokemons,backgroundColors,s
     const params = useParams();
     const [pokemon, setPokemon] = useState();
     var favorite = false;
+    const history = useHistory();
 
 
     useEffect( () => {
@@ -23,6 +24,11 @@ export default function Pokemon( {username,favorites,pokemons,backgroundColors,s
         window.scrollTo(0, 0);
 
     },[params]);
+
+    function redirect(e) {
+        e.preventDefault();
+        history.goBack();
+    }
     
 
     return (  
@@ -33,7 +39,8 @@ export default function Pokemon( {username,favorites,pokemons,backgroundColors,s
             <>
             {favorites.includes(pokemon.name) ? favorite = true : false}
             
-            <StyledLink to="/"><BsArrowLeft  color="black" size={35}/></StyledLink>
+            <StyledLink onClick={redirect} ><BsArrowLeft  color="black" size={35}/></StyledLink>
+
             <Title>{pokemon.name}</Title>
             <Subtitle>Nº {pokemon.number}</Subtitle>
             <Container>
