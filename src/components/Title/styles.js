@@ -9,11 +9,18 @@ export const Title = styled.h1`
     margin: 0 auto 40px auto;
     text-transform: capitalize;
 
-    @media(max-width: 530px) {
+    @media(max-width: 600px) {
 
         & {
 
             font-size: 40px;
+        }
+    }
+    @media(max-width: 460px) {
+
+        & {
+
+            width: min-content;
         }
     }
 `;
