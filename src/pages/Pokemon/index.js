@@ -28,7 +28,7 @@ export default function Pokemon( {username,favorites,pokemons,backgroundColors,s
         e.preventDefault();
         history.goBack();
     }
-    
+
     return (  
         <div className='container'>          
         <Header username={username} />
