@@ -34,6 +34,7 @@ const App = () => {
               setPrevPage(data.prev_page);
               setNextPage(data.next_page);
               setPokemons(data.data);
+              console.log("poke");
           })
 
   }, [current_page])
@@ -45,7 +46,7 @@ const App = () => {
           .then((data) => {
               setFavorites(data.pokemons.map(pokemon => pokemon.name));
           }) 
-  },[favorites]);
+  },[]);
 
 
 
@@ -89,7 +90,7 @@ const App = () => {
 
 
           <Route path="/pokemons/:name">
-            <Pokemon username={username}/>
+            <Pokemon username={username}  pokemons={pokemons} favorites={favorites} backgroundColors={backgroundColors} setFavorites={setFavorites}/>
           </Route>
 
           <Route path="/users/:name">

@@ -49,14 +49,6 @@ export const Div = styled.div`
 
     }
 
-    &.star {
-        height: 30%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-
     p.name {
         color: black;
         text-transform: capitalize;        
@@ -77,27 +69,4 @@ export const Item = styled.li`
     box-shadow: 3px 3px 8px -1px rgba(0, 0, 0, 0.25);
     list-style: none;
     margin-bottom: 20px;
-`;
-
-export const Kinds= styled.ul`
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 30%;
-
-`;
-
-export const Kind = styled.li`
-    color: white;
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 500;
-    border-radius: 7px;
-    padding: 3px 5px;
-    text-align: center;
-    text-shadow: 0 0 1px #c3c3c3;
-    background-color: ${ ({children, backgroundColors}) => backgroundColors[children]};
-    
-
 `;

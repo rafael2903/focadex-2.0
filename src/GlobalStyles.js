@@ -11,17 +11,19 @@ export const GlobalStyle = createGlobalStyle`
     
 
     main {
-        min-height: 100vh;
+        min-height: calc(100vh - 160px);
         width: 85vw;
         max-width: 1100px;
         margin: 0 auto;
         position: relative;
         text-align: center;
+
     }
 
     main p.loading {
         font-size: 20px;
-        margin-top: 20%;
+        padding-top: 30%;
+        margin-top: 30px;
     }
 
     @media(max-width: 530px) {
