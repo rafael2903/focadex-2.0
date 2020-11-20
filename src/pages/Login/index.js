@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
 import { Container, LoginInput, LoginButton } from './styles'
 import logo from '../../assets/logoPokemon.png';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
 
 const APIurl = 'https://pokedex20201.herokuapp.com/';
 
 
 const LoginPage = ({ username, setUsername, setLogin }) => {
 
-    const login = (username) => {
+    const login = (e) => {
+        e.preventDefault();
         axios.get(`${APIurl}users/${username}`)
             .then(res => {
                 console.log("status " + res.status);
@@ -39,11 +38,14 @@ const LoginPage = ({ username, setUsername, setLogin }) => {
 
     return (
         <Container>
-            <img src={logo} alt="Pokemon Logo" style={{ width: '40%' }} />
+            <div>
+                <img src={logo} alt="Pokemon Logo" style={{maxWidth: '100%',maxHeight: '100%'}} />
+            </div>
             <h1>Faça Login</h1>
-            <LoginInput type='text' placeholder='Nome de usuário' onChange={(e) => setUsername(e.target.value)}></LoginInput>
-            <LoginButton onClick={() => { login(username); }}>Entrar</LoginButton>
-
+            <form onSubmit={login}>
+                <LoginInput type='text' placeholder='Nome de usuário' onChange={(e) => setUsername(e.target.value)}></LoginInput>
+                <LoginButton type='submit'>Entrar</LoginButton>
+            </form>
         </Container>
     );
 

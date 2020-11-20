@@ -1,14 +1,12 @@
-import { StyledHeader } from './styles';
+import { StyledHeader, StyledLink } from './styles';
 import Profile from '../ProfileButton';
-import { MdKeyboardBackspace } from 'react-icons/md';
 import "./styles";
 
 function Header({ username, showProfile = true }) {
 
     return (
         <StyledHeader>
-            {/* <MdKeyboardBackspace size={30} color="#fff"/> */}
-            <p className="header-logo">Pokedex</p>
+            <StyledLink to='/' className="header-logo">Pokedex</StyledLink>
             {showProfile ? <Profile username={username} /> : <></>}
         </StyledHeader>
     );

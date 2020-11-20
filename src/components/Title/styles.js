@@ -7,13 +7,13 @@ export const Title = styled.h1`
     text-align: center;
     width: auto;
     margin: 30px auto 40px auto;
-    /* border-bottom: 2px solid black; */
+    text-transform: capitalize;
 
     @media(max-width: 530px) {
 
         & {
 
-            font-size: 42px;
+            font-size: 40px;
         }
     }
 `;

@@ -1,6 +1,5 @@
 import {StyledFooter, StyledLink} from './styles';
 
-
 function Footer() {
 
     return(
@@ -13,6 +12,5 @@ function Footer() {
         </>
     );
 }
-
 
 export default Footer;

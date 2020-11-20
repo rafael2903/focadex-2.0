@@ -48,13 +48,9 @@ function changePage(action,value,setCurrentPage) {
 
     window.scrollTo(0, 0);
     setCurrentPage(prev => action == 'next' ? prev+value : prev-value);
-
 }
 
-
 function Pagination( {prev_page, current_page, setCurrentPage, next_page} ) {
-
-
 
     return(
         <>
