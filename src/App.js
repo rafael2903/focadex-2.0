@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 
 const App = () => {
 
-  
+
   const [loggedIn, setLogin] = useState(() => {
     return JSON.parse(localStorage.getItem('logged'));
   });
@@ -24,30 +24,30 @@ const App = () => {
   const [next_page, setNextPage] = useState();
   const [pokemons, setPokemons] = useState([]);
   const [favorites, setFavorites] = useState([])
-  
-  useEffect( () => {
+
+  useEffect(() => {
     axios
-        .get(`https://pokedex20201.herokuapp.com/pokemons?page=${current_page}`)
-        .then((response) => response.data)
-        .then((data) => {
-            setPrevPage(data.prev_page);
-            setNextPage(data.next_page);
-            setPokemons(data.data);
-            console.log("poke");
-        })
+      .get(`https://pokedex20201.herokuapp.com/pokemons?page=${current_page}`)
+      .then((response) => response.data)
+      .then((data) => {
+        setPrevPage(data.prev_page);
+        setNextPage(data.next_page);
+        setPokemons(data.data);
+        console.log("poke");
+      })
 
-}, [current_page])
+  }, [current_page])
 
-useEffect(() => {
+  useEffect(() => {
     axios
-        .get(`https://pokedex20201.herokuapp.com/users/${username}`)
-        .then((response) => response.data)
-        .then((data) => {
-            setFavorites(data.pokemons.map(pokemon => pokemon.name));
-        }) 
-},[]);
+      .get(`https://pokedex20201.herokuapp.com/users/${username}`)
+      .then((response) => response.data)
+      .then((data) => {
+        setFavorites(data.pokemons.map(pokemon => pokemon.name));
+      })
+  }, [username]);
 
-const backgroundColors = {
+  const backgroundColors = {
 
     bug: "#7ED578",
     electric: "#FFF34B",
@@ -67,7 +67,7 @@ const backgroundColors = {
     water: "#7192FF",
     dragon: "#43372D",
 
-}
+  }
 
   return (
 
@@ -79,14 +79,14 @@ const backgroundColors = {
           <Route exact path="/">
             {loggedIn ? <Home pokemons={pokemons} favorites={favorites} backgroundColors={backgroundColors} username={username} setFavorites={setFavorites} prev_page={prev_page} current_page={current_page} setCurrentPage={setCurrentPage} next_page={next_page} /> : <Redirect to="/login" />}
           </Route>
-          
+
           <Route path="/login">
             {loggedIn ? <Redirect to="/" /> : <LoginPage username={username} setUsername={setUsername} setLogin={setLogin} />}
           </Route>
 
 
           <Route path="/pokemons/:name">
-            <Pokemon username={username}  pokemons={pokemons} favorites={favorites} backgroundColors={backgroundColors} setFavorites={setFavorites}/>
+            <Pokemon username={username} pokemons={pokemons} favorites={favorites} backgroundColors={backgroundColors} setFavorites={setFavorites} />
           </Route>
 
           <Route path="/users/:name" render={(props) => <Profile username={props.match.params.name} setLogin={setLogin} backgroundColors={backgroundColors} />} >

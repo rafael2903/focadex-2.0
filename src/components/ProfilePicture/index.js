@@ -6,7 +6,7 @@ import picture from '../../assets/profile.png'
 const ProfilePicture = () => {
     return (
         <Frame>
-            <img src={picture} width='150px' />
+            <img src={picture} alt="Foto de perfil" width='150px' />
         </Frame>
     )
 }

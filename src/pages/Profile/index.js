@@ -25,9 +25,9 @@ const Profile = ({ username, setLogin, backgroundColors }) => {
             .then((data) => {
                 setFavorites(data.pokemons.map(pokemon => pokemon.name));
                 setPokemons(data.pokemons);
-                
+
             })
-    },[]);
+    }, [username]);
 
     function redirect(e) {
         e.preventDefault();
@@ -39,17 +39,17 @@ const Profile = ({ username, setLogin, backgroundColors }) => {
             <Header showProfile={false} />
             <main>
 
-            <Container>
-                <StyledLink onClick={redirect} ><BsArrowLeft  color="black" size={35}/></StyledLink>
-                <UserDetail username={username}></UserDetail>
-                <LogOutButton setLogin={setLogin} />
-                <div className="subtitle" >Favoritos</div>
-            </Container>
-            { favorites.length ?
-                <Cards pokemons={pokemons} favorites={favorites} backgroundColors={backgroundColors} username={username} setFavorites={setFavorites} />
-                : <NoFavorites>Você não possui nenhum pokemon favorito :(</NoFavorites>
+                <Container>
+                    <StyledLink onClick={redirect} ><BsArrowLeft color="black" size={35} /></StyledLink>
+                    <UserDetail username={username}></UserDetail>
+                    <LogOutButton setLogin={setLogin} />
+                    <div className="subtitle" >Favoritos</div>
+                </Container>
+                {favorites.length ?
+                    <Cards pokemons={pokemons} favorites={favorites} backgroundColors={backgroundColors} username={username} setFavorites={setFavorites} />
+                    : <NoFavorites>Você não possui nenhum pokemon favorito :(</NoFavorites>
                 }
-                </main>
+            </main>
             <Footer />
         </>
     );

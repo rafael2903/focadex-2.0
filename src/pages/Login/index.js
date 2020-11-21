@@ -27,7 +27,7 @@ const LoginPage = ({ username, setUsername, setLogin }) => {
         axios.post(`${APIurl}users`, { username: username })
             .then(res => {
                 console.log(res.status);
-                if (res.status == 201) {
+                if (res.status === 201) {
                     localStorage.setItem('logged', 'true');
                     localStorage.setItem('username', username);
                     setUsername(username);
@@ -39,7 +39,7 @@ const LoginPage = ({ username, setUsername, setLogin }) => {
     return (
         <Container>
             <div>
-                <img src={logo} alt="Pokemon Logo" style={{maxWidth: '100%',maxHeight: '100%'}} />
+                <img src={logo} alt="Pokemon Logo" style={{ maxWidth: '100%', maxHeight: '100%' }} />
             </div>
             <h1>Faça Login</h1>
             <form onSubmit={login}>
