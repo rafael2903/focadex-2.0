@@ -1,18 +1,16 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { logOut } from '../../store/user';
 import { RedButton } from './styles';
 
-const LogOutButton = ({ setLoggedIn }) => {
-  const logOut = () => {
-    localStorage.removeItem('logged');
-    localStorage.removeItem('username');
-    setLoggedIn(false);
-  };
+const LogOutButton = () => {
+  const dispatch = useDispatch();
 
   return (
     <Link to="/login">
-      <RedButton onClick={logOut}>Sair</RedButton>
+      <RedButton onClick={() => dispatch(logOut())}>Sair</RedButton>
     </Link>
   );
 };

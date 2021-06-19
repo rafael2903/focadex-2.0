@@ -1,31 +1,23 @@
 import { IoIosStar } from 'react-icons/io';
+import { useDispatch, useSelector } from 'react-redux';
 
-import axios from 'axios';
-
+import api from '../../services/api';
+import { addFavorite, removeFavorite } from '../../store/user';
 import { Div } from './styles';
 
-const Star = ({ favorite, username, name, setFavorites, size }) => {
+const Star = ({ favorite, pokemonName, size }) => {
+  const dispatch = useDispatch();
+  const { username } = useSelector((state) => state.user);
+
   function handleClick() {
     if (favorite) {
-      axios
-        .delete(
-          `https://pokedex20201.herokuapp.com/users/${username}/starred/${name}`
-        )
-        .then(() => {
-          setFavorites((previous) => {
-            return previous.filter((pokemon) => {
-              return pokemon !== name;
-            });
-          });
-        });
+      api.delete(`users/${username}/starred/${pokemonName}`).then(() => {
+        dispatch(removeFavorite(pokemonName));
+      });
     } else {
-      axios
-        .post(
-          `https://pokedex20201.herokuapp.com/users/${username}/starred/${name}`
-        )
-        .then(() => {
-          setFavorites((previous) => [...previous, name]);
-        });
+      api.post(`users/${username}/starred/${pokemonName}`).then(() => {
+        dispatch(addFavorite(pokemonName));
+      });
     }
   }
 

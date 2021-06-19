@@ -1,9 +1,12 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import image from '../../assets/profile.png';
 import { Img, Div } from './styles';
 
-const Profile = ({ username }) => {
+const Profile = () => {
+  const { username } = useSelector((state) => state.user);
+
   return (
     <Div className="profile-container">
       <Link to={`/users/${username}`}>

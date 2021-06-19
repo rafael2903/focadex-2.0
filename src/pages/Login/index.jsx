@@ -1,15 +1,19 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
 import logo from '../../assets/logoPokemon.png';
 import api from '../../services/api';
+import { setUser } from '../../store/user';
 import { Container, LoginInput, LoginButton } from './styles';
 
-const LoginPage = ({ username, setUsername, setLoggedIn }) => {
+const Login = () => {
+  const [username, setUsername] = useState('');
+  const dispatch = useDispatch();
+
   const cadastrar = () => {
     api.post('users', { username }).then((res) => {
       if (res.status === 201) {
-        localStorage.setItem('logged', 'true');
-        localStorage.setItem('username', username);
-        setUsername(username);
-        setLoggedIn(true);
+        dispatch(setUser(username));
       }
     });
   };
@@ -19,10 +23,7 @@ const LoginPage = ({ username, setUsername, setLoggedIn }) => {
     api
       .get(`users/${username}`)
       .then(() => {
-        localStorage.setItem('logged', 'true');
-        localStorage.setItem('username', username);
-        setUsername(username);
-        setLoggedIn(true);
+        dispatch(setUser(username));
       })
       .catch(() => {
         cadastrar();
@@ -51,4 +52,4 @@ const LoginPage = ({ username, setUsername, setLoggedIn }) => {
   );
 };
 
-export default LoginPage;
+export default Login;

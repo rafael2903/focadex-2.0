@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
-import { useHistory, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import Cards from '../../components/Cards';
 import Footer from '../../components/Footer';
@@ -8,20 +9,21 @@ import Header from '../../components/Header';
 import LogOutButton from '../../components/LogOutButton';
 import UserDetail from '../../components/UserDetail';
 import api from '../../services/api';
+import { setFavorites } from '../../store/user';
 import { Container, NoFavorites, StyledLink } from './styles';
 
-const Profile = ({ setLoggedIn }) => {
+const Profile = () => {
   const [pokemons, setPokemons] = useState([]);
-  const [favorites, setFavorites] = useState([]);
   const history = useHistory();
-  const { username } = useParams();
+  const { username, favorites } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     api
       .get(`users/${username}`)
       .then((response) => response.data)
       .then((data) => {
-        setFavorites(data.pokemons.map((pokemon) => pokemon.name));
+        dispatch(setFavorites(data.pokemons.map((pokemon) => pokemon.name)));
         setPokemons(data.pokemons);
       });
   }, []);
@@ -40,17 +42,12 @@ const Profile = ({ setLoggedIn }) => {
             <BsArrowLeft color="black" size={35} />
           </StyledLink>
           <UserDetail username={username} />
-          <LogOutButton setLoggedIn={setLoggedIn} />
+          <LogOutButton />
           <div className="subtitle">Favoritos</div>
         </Container>
 
         {favorites.length ? (
-          <Cards
-            pokemons={pokemons}
-            favorites={favorites}
-            username={username}
-            setFavorites={setFavorites}
-          />
+          <Cards pokemons={pokemons} />
         ) : (
           <NoFavorites>Você não possui nenhum pokemon favorito :(</NoFavorites>
         )}

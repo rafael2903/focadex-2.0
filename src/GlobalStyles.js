@@ -16,6 +16,8 @@ export const GlobalStyle = createGlobalStyle`
         margin: 30px auto 0 auto;
         position: relative;
         text-align: center;
+        display: flex;
+        flex-direction: column;
     }
 
     main p.loading {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
 import Footer from '../../components/Footer';
@@ -17,8 +18,9 @@ import {
   ImgContainer
 } from './styles';
 
-const Pokemon = ({ username, favorites, setFavorites }) => {
+const Pokemon = ({ username }) => {
   const [pokemon, setPokemon] = useState();
+  const { favorites } = useSelector((state) => state.user);
   const { name } = useParams();
   const history = useHistory();
 
@@ -65,8 +67,7 @@ const Pokemon = ({ username, favorites, setFavorites }) => {
                   size={32}
                   favorite={favorites.includes(pokemon.name)}
                   username={username}
-                  name={pokemon.name}
-                  setFavorites={setFavorites}
+                  pokemonName={pokemon.name}
                 />
               </AboutContainer>
             </Container>

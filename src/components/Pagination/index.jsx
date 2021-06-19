@@ -6,7 +6,9 @@ import { PagesContainer, Page } from './styles';
 
 const analyser = () => {
   const dispatch = useDispatch();
-  const { prevPage, currentPage, nextPage } = useSelector((state) => state);
+  const { prevPage, currentPage, nextPage } = useSelector(
+    (state) => state.pagination
+  );
 
   const changePage = (action, value) => {
     const newCurrentPage =

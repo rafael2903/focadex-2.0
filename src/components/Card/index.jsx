@@ -3,12 +3,7 @@ import Kinds from '../Kinds';
 import Star from '../Star';
 import { Img, Div, Container, Item, StyledLink } from './styles';
 
-const Card = ({
-  pokemon: { image_url, name, kind },
-  favorite,
-  username,
-  setFavorites
-}) => {
+const Card = ({ pokemon: { image_url, name, kind }, favorite }) => {
   return (
     <Item className="item">
       <StyledLink to={`/pokemons/${name}`}>
@@ -24,13 +19,7 @@ const Card = ({
           <p className="name">{name}</p>
         </Div>
         <Kinds kinds={kind} size={15} />
-        <Star
-          username={username}
-          size={25}
-          favorite={favorite}
-          name={name}
-          setFavorites={setFavorites}
-        />
+        <Star size={25} favorite={favorite} pokemonName={name} />
       </Div>
     </Item>
   );

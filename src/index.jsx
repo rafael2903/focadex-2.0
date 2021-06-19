@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-
 import { ThemeProvider } from 'styled-components';
 
 import App from './App';
@@ -25,7 +24,8 @@ const theme = {
     rock: '#757575',
     steel: '#A1A1A1',
     water: '#7192FF',
-    dragon: '#43372D'
+    dragon: '#43372D',
+    dark: '#333'
   }
 };
 

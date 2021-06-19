@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 import styled from 'styled-components';
 
 export const StyledLink = styled(Link)`
@@ -20,12 +19,14 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 5rem;
 
   @media (max-width: 800px) {
     & {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      margin-top: 0;
     }
   }
 `;

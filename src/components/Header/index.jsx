@@ -1,13 +1,13 @@
 import Profile from '../ProfileButton';
 import { StyledHeader, StyledLink } from './styles';
 
-const Header = ({ username, showProfile = true }) => {
+const Header = ({ showProfile = true }) => {
   return (
     <StyledHeader>
       <StyledLink to="/" className="header-logo">
         Pokedex
       </StyledLink>
-      {showProfile ? <Profile username={username} /> : <></>}
+      {showProfile ? <Profile /> : <></>}
     </StyledHeader>
   );
 };
