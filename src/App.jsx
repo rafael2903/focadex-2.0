@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
@@ -14,6 +15,7 @@ import LoginPage from './pages/Login';
 import PageNotFound from './pages/PageNotFound';
 import Pokemon from './pages/Pokemon';
 import Profile from './pages/Profile';
+import { setPrevPage, setNextPage } from './store/pagination';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(() => {
@@ -24,19 +26,19 @@ const App = () => {
     return localStorage.getItem('username');
   });
 
-  const [prevPage, setPrevPage] = useState();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [nextPage, setNextPage] = useState();
   const [pokemons, setPokemons] = useState([]);
   const [favorites, setFavorites] = useState([]);
+
+  const { currentPage } = useSelector((state) => state);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
       .get(`https://pokedex20201.herokuapp.com/pokemons?page=${currentPage}`)
       .then((response) => response.data)
       .then((data) => {
-        setPrevPage(data.prev_page);
-        setNextPage(data.next_page);
+        dispatch(setPrevPage(data.prev_page));
+        dispatch(setNextPage(data.next_page));
         setPokemons(data.data);
       });
   }, [currentPage]);
@@ -62,10 +64,6 @@ const App = () => {
                 favorites={favorites}
                 username={username}
                 setFavorites={setFavorites}
-                prevPage={prevPage}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                nextPage={nextPage}
               />
             ) : (
               <Redirect to="/login" />

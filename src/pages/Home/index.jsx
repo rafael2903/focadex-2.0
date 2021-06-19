@@ -4,16 +4,7 @@ import Header from '../../components/Header';
 import Pagination from '../../components/Pagination';
 import Title from '../../components/Title';
 
-const Home = ({
-  username,
-  pokemons,
-  favorites,
-  setFavorites,
-  prevPage,
-  currentPage,
-  setCurrentPage,
-  nextPage
-}) => {
+const Home = ({ username, pokemons, favorites, setFavorites }) => {
   return (
     <>
       <Header username={username} />
@@ -26,12 +17,7 @@ const Home = ({
           setFavorites={setFavorites}
         />
       </main>
-      <Pagination
-        prevPage={prevPage}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        nextPage={nextPage}
-      />
+      <Pagination />
       <Footer />
     </>
   );
