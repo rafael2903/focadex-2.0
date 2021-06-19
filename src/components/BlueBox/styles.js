@@ -1,8 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const BlueBox = styled.div`
-    background-color: #2D70B7;
-    height: 60px;
+  background-color: #2d70b7;
+  height: 60px;
 `;
-
-
